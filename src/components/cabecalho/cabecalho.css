@@ -1,7 +1,11 @@
 /* cabecalho */
+body{
+    background: #10171e;
+    color: #fff;
+}
 .cabecalho {
     width: 100%;
-    background-color: #fff;
+    background: #1c2938;
 }
 .cabecalho__container {
     padding: 0 15px;
@@ -10,6 +14,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+
 }
 @media (max-width: 610px) {
     .cabecalho__container {

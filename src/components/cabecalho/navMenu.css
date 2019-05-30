@@ -14,7 +14,9 @@
   padding: 14px 10px;
   display: block;
   cursor: pointer;
-}
+  color: #8899a6;
+  text-decoration:none;
+} 
 @media (max-width: 610px) {
   .navMenu__link {
     padding: 14px 7px;
