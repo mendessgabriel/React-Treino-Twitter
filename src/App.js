@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard'
 import Widget from './components/Widget'
 import TrendsArea from './components/TrendsArea'
 import Tweet from './components/Tweet'
+import WidgetThread from './components/WidgetThread/index'
 
 class App extends Component {
     constructor(state) {
@@ -13,7 +14,7 @@ class App extends Component {
             name: '',
             novoTweet: '',
             texto: '',
-            tweets: [{tweet: "", data: new Date()}],
+            tweets: [],
             tweetTime: new Date
         }
     }
@@ -21,13 +22,13 @@ class App extends Component {
     adicionaTweet = (infosDoEvento) => {
         infosDoEvento.preventDefault();
         let self = this;
-        if(this.state.novoTweet.length > 0){
-            self.state.tweets.push({tweet: this.state.novoTweet, data: this.state.tweetTime});
-            self.setState({ 
+        if (this.state.novoTweet.length > 0) {
+            self.state.tweets.push({ tweet: this.state.novoTweet, data: this.state.tweetTime });
+            self.setState({
                 tweets: self.state.tweets,
                 novoTweet: ''
             });
-            
+
         }
     }
 
@@ -43,44 +44,47 @@ class App extends Component {
                         <Widget>
                             <form className="novoTweet" onSubmit={this.adicionaTweet}>
                                 <div className="novoTweet__editorArea">
-                                    <span className={ `novoTweet__status ${
+                                    <span className={`novoTweet__status ${
                                         this.state.novoTweet.length > 140 ? 'novoTweet__status--invalido' : ''}`
-                                        }>
+                                    }>
                                         {this.state.novoTweet.length}/140
 									</span>
                                     <textarea className="novoTweet__editor" value={this.state.novoTweet}
-                                    onChange={ (event) => this.setState({ novoTweet: event.target.value, tweetTime: new Date() }) }
-                                     placeholder="O que está acontecendo?"
-                                     ></textarea>
+                                        onChange={(event) => this.setState({ novoTweet: event.target.value, tweetTime: new Date() })}
+                                        placeholder="O que está acontecendo?"
+                                    ></textarea>
                                 </div>
                                 <button type="submit"
-                                disabled={ this.state.novoTweet.length > 140 || this.state.novoTweet.length === 0 }
-                                 className="novoTweet__envia">Twettar</button>
+                                    disabled={this.state.novoTweet.length > 140 || this.state.novoTweet.length === 0}
+                                    className="novoTweet__envia">Twettar</button>
 
-                                 <br />
-                                 <br />
-                                 <br />
-                                 <label>Digite seu nome:</label>
-                                 <input type='text' className="inputNewTweet" value={this.state.name} onChange={(event) => {this.setState({name: event.target.value})}}/><br />
-                                 <br />
-                                 <label hidden={this.state.name.length <= 0}>Bem vindo, <b>{this.state.name}!</b></label>
+                                <br />
+                                <br />
+                                <br />
+                                <label>Digite seu nome:</label>
+                                <input type='text' className="inputNewTweet" value={this.state.name} onChange={(event) => { this.setState({ name: event.target.value }) }} /><br />
+                                <br />
+                                <label hidden={this.state.name.length <= 0}>Bem vindo, <b>{this.state.name}!</b></label>
                             </form>
                         </Widget>
                         <Widget>
                             <TrendsArea />
                         </Widget>
-                    </Dashboard>
+                    </Dashboard >
+
+
                     <Dashboard posicao="centro">
-                        <Widget>
+                        <WidgetThread tweets={this.state.tweets.length}>
                             <div className="tweetsArea">
                                 {
-                                    this.state.tweets.map( (tweetInfo, index) => {
-                                    return <Tweet key={index} texto={tweetInfo.tweet} />
-                                }).reverse(this.state.tweets.data)}
+                                    this.state.tweets.map((tweetInfo, index) => {
+                                        return <Tweet key={index} texto={tweetInfo.tweet} />
+                                    }).reverse(this.state.tweets.data)
+                                }
                             </div>
-                        </Widget>
+                        </WidgetThread>
                     </Dashboard>
-                </div>
+                    </div>
             </Fragment>
         );
     }

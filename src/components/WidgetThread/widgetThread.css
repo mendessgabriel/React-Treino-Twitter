@@ -10,3 +10,13 @@
   font-weight: bold;
   margin-bottom: 15px;
 }
+.widget__oculta{
+  display: none;
+}
+.widget__visible{
+  display: inherit;
+  background: #4b6184;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
