@@ -5,10 +5,10 @@ class TrendsArea extends Component {
     render() {
         return ( 
             <div className="trendsArea">
-                <h2 className="trendsArea__titulo widget__titulo">Trends dos Parça</h2>
+                <h2 className="trendsArea__titulo widget__titulo">Trends</h2>
                 <ol className="trendsArea__lista">
-                    <li><a href="/">#LegalizeJá</a></li>
-                    <li><a href="/">#A.N.A.R.C.O.S</a></li>
+                    <li><a href="/">#Trends1</a></li>
+                    <li><a href="/">#Trends2</a></li>
                 </ol>
             </div>
         )

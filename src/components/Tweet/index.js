@@ -11,7 +11,7 @@ class Tweet extends Component {
                     <a href="/"><span className="tweet__userName">@GabrielMendes</span></a>
                 </div>
                 <p className="tweet__conteudo">
-                    <span>O moxima çofa a secri teuba nos bemtam teba, sem çalhadapa</span> 
+                    {this.props.texto}
                 </p>
                 <footer className="tweet__footer">
                     <button className="btn btn--clean">
