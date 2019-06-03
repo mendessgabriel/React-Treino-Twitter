@@ -1,28 +1,18 @@
-import React, { Component, Fragment } from 'react'
-import NavMenu from '../NavMenu/index.js'
+import React, { Component } from 'react'
 import './cabecalho.css'
+// import './navMenu.css'
 
 class Cabecalho extends Component {
     render() {
-        console.log(this)
         return (
-            <Fragment>
-                <NavMenu usuario="@GabrielMendes" appName="Twitter"></NavMenu>
-            </Fragment>
-        )
-    }
-}
-
-export class Botao extends Component {
-    render() {
-        console.log(this)
-        return (
-            <Fragment>
-                <br />
-                <button>
-                    {this.props.children}
-                </button>
-            </Fragment>
+            <header className="cabecalho">
+                <div className="cabecalho__container container">
+                    <h1 className="cabecalho__logo">
+                        <a href="/">Twitter</a>
+                    </h1>
+                    { this.props.children }
+                </div>
+            </header>
         )
     }
 }

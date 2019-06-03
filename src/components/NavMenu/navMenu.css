@@ -1,12 +1,13 @@
 /* navMenu */
 .navMenu {}
-.navMenu__lista {
-  padding-inline-start: 0px;
-}
+.navMenu__lista {}
 @media (max-width: 610px) {
   .navMenu__lista {
     text-align: center;
   }
+}
+strong{
+  color: #fff!important;
 }
 .navMenu__item {
   display: inline-block;
@@ -18,7 +19,13 @@
   cursor: pointer;
   color: #8899a6;
   text-decoration:none;
-} 
+}
+.cabecalho__logoPrincipal{
+  margin-left: auto;
+  margin-right: auto;
+  height:70px;
+  width:70px;
+}
 @media (max-width: 610px) {
   .navMenu__link {
     padding: 14px 7px;
