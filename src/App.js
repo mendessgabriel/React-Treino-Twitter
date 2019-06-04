@@ -62,7 +62,7 @@ class App extends Component {
                                 <br />
                                 <br />
                                 <label>Digite seu nome:</label>
-                                <input type='text' className="inputNewTweet" value={this.state.name} onChange={(event) => { this.setState({ name: event.target.value }) }} /><br />
+                                <input type='text' className="inputNewTweet" value={this.state.name} onChange={(event) => { this.setState({ name: event.target.value }) }} maxlength="25" /><br />
                                 <br />
                                 <label hidden={this.state.name.length <= 0}>Bem vindo, <b>{this.state.name}!</b></label>
                             </form>
